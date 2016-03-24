@@ -33,7 +33,7 @@
         });
     } else {
         // Browser globals
-        root.Base64 = factory();
+        global.Base64 = factory();
     }
 }(this, function () {
     var keyStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
@@ -133,7 +133,7 @@
         });
     } else {
         // Browser globals
-        root.SHA1 = factory();
+        global.SHA1 = factory();
     }
 }(this, function () {
 
@@ -328,7 +328,7 @@ return {
         });
     } else {
         // Browser globals
-        root.MD5 = factory();
+        global.MD5 = factory();
     }
 }(this, function (b) {
     /*
@@ -530,7 +530,7 @@ return {
         });
     } else {
         // Browser globals
-        root.stropheUtils = factory();
+        global.stropheUtils = factory();
     }
 }(this, function () {
 
@@ -723,7 +723,7 @@ if (!Array.prototype.indexOf)
         });
     } else {
         // Browser globals
-        var o = factory(root.SHA1, root.Base64, root.MD5, root.stropheUtils);
+        var o = factory(global.SHA1, global.Base64, global.MD5, global.stropheUtils);
         window.Strophe =        o.Strophe;
         window.$build =         o.$build;
         window.$iq =            o.$iq;
@@ -755,7 +755,7 @@ var Strophe;
 function $build(name, attrs) { return new Strophe.Builder(name, attrs); }
 
 /** Function: $msg
- *  Create a Strophe.Builder with a <message/> element as the root.
+ *  Create a Strophe.Builder with a <message/> element as the global.
  *
  *  Parameters:
  *    (Object) attrs - The <message/> element attributes in object notation.
@@ -766,7 +766,7 @@ function $build(name, attrs) { return new Strophe.Builder(name, attrs); }
 function $msg(attrs) { return new Strophe.Builder("message", attrs); }
 
 /** Function: $iq
- *  Create a Strophe.Builder with an <iq/> element as the root.
+ *  Create a Strophe.Builder with an <iq/> element as the global.
  *
  *  Parameters:
  *    (Object) attrs - The <iq/> element attributes in object notation.
@@ -777,7 +777,7 @@ function $msg(attrs) { return new Strophe.Builder("message", attrs); }
 function $iq(attrs) { return new Strophe.Builder("iq", attrs); }
 
 /** Function: $pres
- *  Create a Strophe.Builder with a <presence/> element as the root.
+ *  Create a Strophe.Builder with a <presence/> element as the global.
  *
  *  Parameters:
  *    (Object) attrs - The <presence/> element attributes in object notation.
