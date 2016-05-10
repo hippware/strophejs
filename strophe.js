@@ -3106,7 +3106,7 @@ Strophe.Connection.prototype = {
      */
     _dataRecv: function (req, raw)
     {
-        Strophe.info("_dataRecv called");
+        Strophe.info("_dataRecv called" + raw);
         var elem = this._proto._reqToData(req);
         if (elem === null) { return; }
 
@@ -3533,7 +3533,7 @@ Strophe.Connection.prototype = {
         }
 
         if (!this.do_bind) {
-            this._changeConnectStatus(Strophe.Status.AUTHFAIL, null);
+            this._changeConnectStatus(Strophe.Status.AUTHFAIL, Strophe.serialize(elem));
             return false;
         } else {
             this._addSysHandler(this._sasl_bind_cb.bind(this), null, null,
@@ -3653,7 +3653,7 @@ Strophe.Connection.prototype = {
 
         if(this._sasl_mechanism)
           this._sasl_mechanism.onFailure();
-        this._changeConnectStatus(Strophe.Status.AUTHFAIL, null);
+        this._changeConnectStatus(Strophe.Status.AUTHFAIL, Strophe.serialize(elem));
         return false;
     },
     /* jshint unused:true */
