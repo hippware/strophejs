@@ -10,3 +10,5 @@ doc
 *.tar.gz
 *.zip
 *~
+.*.sw?
+doc-tmp
